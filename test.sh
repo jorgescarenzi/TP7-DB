@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ls -l /var/lib/mysql/ecomdb/products.frm 2> /dev/null > /dev/null
+if test -e ~/var/lib/mysql/ecomdb/products.ibd ;
 then
   echo  "TEST PASSED ---------------------"
 
