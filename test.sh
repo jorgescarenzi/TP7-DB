@@ -1,10 +1,9 @@
 #!/bin/bash
-docker exec -t ecomdbtest test -d ~/var/lib/mysql/ecomdb/products.ibd
+docker exec -t competent_nobel ls var/lib/mysql/ecomdb/products.ibd
 output="$?"
-echo $?
-if $output -eq 0 ;
-then
-  echo  "TEST PASSED ---------------------"
+echo $output
+if [ $output -eq 0 ]; then
+ echo  "TEST PASSED ---------------------"
 
 else
   echo  "TEST FAILED ---------------------"
