@@ -1,6 +1,6 @@
 #!/bin/bash
-docker exec -it ecomdbtest bash
-if test -e ~/var/lib/mysql/ecomdb/products.ibd
+docker exec -it ecomdbtest sh -c
+"if test -e ~/var/lib/mysql/ecomdb/products.ibd
 then
   echo  "TEST PASSED ---------------------"
 
@@ -10,4 +10,4 @@ else
    docker rm $(docker ps -a -q)
    docker rmi jorgescarenzi/ecom-mysql:$BUILD_NUMBER
    exit 1
-fi
+fi"
