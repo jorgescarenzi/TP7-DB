@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if test -f var/lib/mysql/ecomdb/products.ibd
+if test -f "var/lib/mysql/ecomdb/products.ibd"
 then
   echo  "TEST PASSED ---------------------"
 
