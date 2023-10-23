@@ -22,6 +22,8 @@ pipeline {
       steps {
         sh 'chmod +x -R $WORKSPACE/checkport.sh'
         sh 'bash $WORKSPACE/checkport.sh 3306'
+        sh 'chmod +x -R $WORKSPACE/checkrunning.sh'
+        sh 'bash $WORKSPACE/checkrunning.sh '
         sh 'docker run -d --name ecomdbtest jorgescarenzi/ecom-mysql:$BUILD_NUMBER '
         sh 'chmod +x -R $WORKSPACE/test.sh'
         sh 'bash $WORKSPACE/test.sh'
