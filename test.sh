@@ -1,5 +1,5 @@
 #!/bin/bash
-
+docker exec -it ecomdbtest bash
 if test -e ~/var/lib/mysql/ecomdb/products.ibd
 then
   echo  "TEST PASSED ---------------------"
