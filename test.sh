@@ -1,5 +1,5 @@
 #!/bin/bash
-docker exec -t competent_nobel ls var/lib/mysql/ecomdb/products.ibd
+docker exec -t ecomdbtest ls var/lib/mysql/ecomdb/products.ibd
 output="$?"
 echo $output
 if [ $output -eq 0 ]; then
