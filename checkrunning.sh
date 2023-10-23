@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-for id in $(docker ps -q -a)
+for id in $(docker ps -q -a -f name=ecomdbtest)
 do
-    if [[ $(docker name "${id}") == *"${1}"* ]]; then
         echo "stopping container ${id}"
         docker stop "${id}"
         docker rm "${id}"
-    fi
 done
