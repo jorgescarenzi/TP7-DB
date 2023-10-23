@@ -2,7 +2,7 @@
 docker exec -t ecomdbtest test -d ~/var/lib/mysql/ecomdb/products.ibd
 output="$?"
 echo $?
-if [$output -eq 0 ];
+if $output -eq 0 ;
 then
   echo  "TEST PASSED ---------------------"
 
