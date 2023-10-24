@@ -7,8 +7,8 @@ if [ $output -eq 0 ]; then
 
 else
   echo  "TEST FAILED ---------------------"
- #  docker stop $(docker ps -a -q)
- #  docker rm $(docker ps -a -q)
- #  docker rmi jorgescarenzi/ecom-mysql:$BUILD_NUMBER
+   docker stop $(docker ps -a -q)
+   docker rm $(docker ps -a -q)
+   docker rmi jorgescarenzi/ecom-mysql:$BUILD_NUMBER
    exit 1
 fi
