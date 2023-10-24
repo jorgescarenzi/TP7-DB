@@ -26,7 +26,7 @@ pipeline {
         sh 'bash $WORKSPACE/checkport.sh 3306'
         sh 'chmod +x -R $WORKSPACE/checkrunning.sh'
         sh 'bash $WORKSPACE/checkrunning.sh '
-        sh "RUNNING NEW INSTANCE FOR TESTING -------- "
+        sh ' echo RUNNING NEW INSTANCE FOR TESTING -------- '
         sh 'docker run -d --name ecomdbtest jorgescarenzi/ecom-mysql:$BUILD_NUMBER '
         sh 'sleep 30'
         sh 'chmod +x -R $WORKSPACE/test.sh'
