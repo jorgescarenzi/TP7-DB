@@ -14,14 +14,14 @@ pipeline {
     
     stage('Build') {
       steps {
-        sh "BUILDING IMAGE ------------------- "
+        sh ' echo BUILDING IMAGE ------------------- '
         sh 'docker build -t jorgescarenzi/ecom-mysql:$BUILD_NUMBER .'
       }
     }
     
     stage('test') {
       steps {
-        sh "VALIDATING PORT AND INSTANCE RUNNING ----- "
+        sh 'echo VALIDATING PORT AND INSTANCE RUNNING ----- '
         sh 'chmod +x -R $WORKSPACE/checkport.sh'
         sh 'bash $WORKSPACE/checkport.sh 3306'
         sh 'chmod +x -R $WORKSPACE/checkrunning.sh'
@@ -42,14 +42,14 @@ pipeline {
     
     stage('Push') {
       steps {
-        sh "PUSHING IMAGE TO DOCKERHUB --------- "
+        sh 'echo PUSHING IMAGE TO DOCKERHUB --------- '
         sh 'docker push jorgescarenzi/ecom-mysql:$BUILD_NUMBER'
       }
     }
   
   stage('Remove Unused docker image') {
       steps{
-        sh 'CLEAN UP DOCKER  ----------- '
+        sh 'echo CLEAN UP DOCKER  ----------- '
         sh 'docker stop $(docker ps -a -q)'
         sh 'docker rm $(docker ps -a -q)'
         sh 'docker rmi jorgescarenzi/ecom-mysql:$BUILD_NUMBER'
